@@ -2,8 +2,11 @@
   <div>
 
     <!-- 轮播图区域 -->
-    <swiper :lunbotuList="lunbotuList" :isfull="true"></swiper>
-
+      <mt-swipe :auto="2000">
+    <mt-swipe-item>轮</mt-swipe-item>
+    <mt-swipe-item>播</mt-swipe-item>
+    <mt-swipe-item>图</mt-swipe-item>
+      </mt-swipe>
 
     <!-- 九宫格 到 6宫格 的改造工程 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -41,23 +44,23 @@ export default {
       lunbotuList: [] // 保存轮播图的数组
     };
   },
-  created() {
-    this.getLunbotu();
-  },
+  // created() {
+  //   this.getLunbotu();
+  // },
   methods: {
-    getLunbotu() {
-      // 获取轮播图数据的方法
-      this.$http.get("api/getlunbo").then(result => {
-        // console.log(result.body);
-        if (result.body.status === 0) {
-          // 成功了
-          this.lunbotuList = result.body.message;
-        } else {
-          // 失败的
-          Toast("加载轮播图失败。。。");
-        }
-      });
-    }
+    // getLunbotu() {
+    //   // 获取轮播图数据的方法
+    //   this.$http.get("api/getlunbo").then(result => {
+    //     // console.log(result.body);
+    //     if (result.body.status === 0) {
+    //       // 成功了
+    //       this.lunbotuList = result.body.message;
+    //     } else {
+    //       // 失败的
+    //       Toast("加载轮播图失败。。。");
+    //     }
+    //   });
+    // }
   },
   components: {
     swiper
@@ -77,6 +80,9 @@ export default {
   .mui-media-body {
     font-size: 13px;
   }
+}
+.mint-swipe{
+  height: 200px;
 }
 
 .mui-grid-view.mui-grid-9 .mui-table-view-cell {

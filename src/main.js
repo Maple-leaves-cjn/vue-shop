@@ -1,15 +1,15 @@
 // 入口文件
 import Vue from 'vue'
-// 1.1 导入路由的包
+
 import VueRouter from 'vue-router'
-// 1.2 安装路由
+
 Vue.use(VueRouter)
 
-// 注册 vuex
+// 注册 
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-// 每次刚进入 网站，肯定会 调用 main.js 在刚调用的时候，先从本地存储中，把 购物车的数据读出来，放到 store 中
+// 购物车数据读出来，放到 store 中
 var car = JSON.parse(localStorage.getItem('car') || '[]')
 
 var store = new Vuex.Store({
@@ -24,7 +24,7 @@ var store = new Vuex.Store({
       // 1. 如果购物车中，之前就已经有这个对应的商品了，那么，只需要更新数量
       // 2. 如果没有，则直接把 商品数据，push 到 car 中即可
 
-      // 假设 在购物车中，没有找到对应的商品
+      // 没有找到对应的商品
       var flag = false
 
       state.car.some(item => {
@@ -138,13 +138,7 @@ import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
 
 
-// 按需导入 Mint-UI 中的组件   
-/* import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui'
-Vue.component(Header.name, Header)
-Vue.component(Swipe.name, Swipe)
-Vue.component(SwipeItem.name, SwipeItem)
-Vue.component(Button.name, Button)
-Vue.use(Lazyload); */
+
 import MintUI from 'mint-ui'
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
